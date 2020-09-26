@@ -10,10 +10,7 @@ Group=monitor
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStart=/monitor/prometheus/prometheus \
 --config.file=/monitor/prometheus/prometheus.yml \
---storage.tsdb.path=/data/prometheus/data \
---web.console.templates=/monitor/prometheus/consoles \
---web.console.libraries=/monitor/prometheus/console_libraries \
---web.listen-address=0.0.0.0:9090
+--storage.tsdb.path=/data/prometheus
 
 SyslogIdentifier=prometheus
 Restart=always

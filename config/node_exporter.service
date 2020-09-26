@@ -1,0 +1,17 @@
+[Unit]
+Description=Node Exporter for Prometheus systemd service unit
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=monitor
+Group=monitor
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/monitor/node_exporter/node_exporter
+
+SyslogIdentifier=node_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
